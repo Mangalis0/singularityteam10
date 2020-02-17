@@ -1,5 +1,25 @@
-# Function 7: Stop Words
+# Function 3: Date Parser
 
+def date_parser(dates):
+    """
+
+    this function takes a list of dated timestamps (strings) 'yyyy-mm-dd hh:mm:ss' as input parameter: dates
+    and returns  a list of dates (strings)
+    """
+
+    return
+
+# Function 5: Number of Tweets per Day
+
+def number_of_tweets_per_day(df):
+    """
+
+    This function takes a dataframe of twitter data as input parameter: df
+    NB input requirement: the dataframe needs to have columns for "Dates" and "Tweets" respectively
+    It then returns a dataframe of the number of tweets grouped per day
+    """
+
+# Function 7: Stop Words
 
 def stop_words_remover(df):
     '''
