@@ -52,6 +52,55 @@ def dictionary_of_metrics(items):
 
 ### END FUNCTION
 
+# Function 2: Five Number Summary
+
+def five_num_summary(items):
+
+    '''
+    
+    The Function Takes In A List As Integers And Returns A Dictionary Of
+    A Five Number Summary.(maximum, median, minimum, first quantile, third quantile).
+
+    Five Number Summary:
+    A Set Of Descriptive Statistics That Provides Information About A Dataset.
+    
+    Inputs:
+    The Function Takes A List, items
+
+    Returns:
+    The Function Return A Dictionary With Keys 'max', 'median', 'min', 'q1', 'q3'
+
+    '''
+
+    # Initialize a empty dictionary
+    d = {}
+    
+    # Maximum value
+    # Code Below Used To Calculate The Max Value Using np.max()
+    # Rounded To Two Decimal Places
+    d['max'] = round(np.max(items), 2)
+    
+    # Median calculation
+    # Code Below Used To Calculate The Median Using np.median()
+    # Rounded To Two Decimal Places
+    d['median'] = round(np.median(items), 2)
+    
+    # Minimum calculation
+    # Code Below Used To Calculate The Min Value Using np.min()
+    # Rounded To Two Decimal Places
+    d['min'] = round(np.min(items), 2)
+    
+    # First quantile
+    # Code Below Used To Calculate The first Quantile Using np.quantile()
+    # Rounded To Two Decimal Places
+    d['q1'] = round(np.quantile(items, 0.25), 2)
+    
+    # Third quantile
+    # Code Below Used To Calculate The Third Quantile Using np.quantile()
+    # Rounded To Two Decimal Places
+    d['q3'] = round(np.quantile(items, 0.75), 2)
+
+    return d
 
 # Function 3: Date Parser
 
