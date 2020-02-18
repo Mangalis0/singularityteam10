@@ -8,7 +8,7 @@
 
 **Context:** Assume the role of a Data Scientist working at Eskom.
 
-**Role Deliverables:** Build 7 functions that will process both numeric(e.g. electricity generation) and text(e.g. Tweets) data. 
+**Role Deliverables:** Build 7 functions that will process both numeric(e.g. electricity generation) and text(e.g. Tweets) data.
 
 ## Python Topics Covered (Python knowledge tested).
 
@@ -37,9 +37,9 @@ import pandas as pd
 
 ```python
 def dictionary_of_metrics(items):
-   
+
     """
-    
+
     This function calculates the mean, median,
     variance, standard deviation, minimum and maximum of list, items, which
     contains only numerical entries.
@@ -56,13 +56,13 @@ def dictionary_of_metrics(items):
 def five_num_summary(items):
 
     '''
-    
+
     The Function Takes In A List As Integers And Returns A Dictionary Of
     A Five Number Summary.(maximum, median, minimum, first quantile, third quantile).
 
     Five Number Summary:
     A Set Of Descriptive Statistics That Provides Information About A Dataset.
-    
+
     Inputs:
     The Function Takes A List, items
 
@@ -86,14 +86,14 @@ def date_parser(dates):
 
 ```python
 def extract_municipality_hashtags(df):
-    
+
     '''
-    
+
     The Function Takes A Dataframe And Returns A modified Dataframe
-    
+
     Inputs:
     The Function Takes In A Pandas Dataframe, df
-    
+
     Returns:
     The Function Returns A Modified Dataframe
     '''
@@ -116,21 +116,21 @@ def number_of_tweets_per_day(df):
 
 ```python
 def word_splitter(df):
-    
+
     '''
-    
-    This function splits the sentences in a dataframe's column into a list of the separate words. 
-    The created lists are placed in a column named 'Split Tweets' in the original dataframe. 
+
+    This function splits the sentences in a dataframe's column into a list of the separate words.
+    The created lists are placed in a column named 'Split Tweets' in the original dataframe.
     This is also known as tokenization.
 
     Key function deliverables are:
 
     It takes a pandas dataframe as an input.
     The dataframe should contain a column, named 'Tweets'.
-    The function splits the sentences in the 'Tweets' into a list of seperate words, and places the 
+    The function splits the sentences in the 'Tweets' into a list of seperate words, and places the
     result into a new column named 'Split Tweets'. The resulting words must all be lowercase!
     It modifies the input dataframe directly.
-    
+
     Return:
     it returns the modified dataframe.
     '''
@@ -172,6 +172,3 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-

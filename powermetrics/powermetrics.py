@@ -3,11 +3,12 @@ import pandas as pd
 
 # FUNCTION 1
 
-### START FUNCTION
+# START FUNCTION
+
+
 def dictionary_of_metrics(items):
-   
     """
-    
+
     This function calculates the mean, median,
     variance, standard deviation, minimum and maximum of list, items, which
     contains only numerical entries.
@@ -20,7 +21,6 @@ def dictionary_of_metrics(items):
 
     # Import numpy as np to use within this function
     import numpy as np
-
 
     'Initialize dict'
     d = {}
@@ -52,20 +52,20 @@ def dictionary_of_metrics(items):
     # returns dictionary, d
     return d
 
-### END FUNCTION
+# END FUNCTION
 
 # Function 2: Five Number Summary
 
-def five_num_summary(items):
 
+def five_num_summary(items):
     '''
-    
+
     The Function Takes In A List As Integers And Returns A Dictionary Of
     A Five Number Summary.(maximum, median, minimum, first quantile, third quantile).
 
     Five Number Summary:
     A Set Of Descriptive Statistics That Provides Information About A Dataset.
-    
+
     Inputs:
     The Function Takes A List, items
 
@@ -75,27 +75,27 @@ def five_num_summary(items):
 
     # Initialize a empty dictionary
     d = {}
-    
+
     # Maximum value
     # Code Below Used To Calculate The Max Value Using np.max()
     # Rounded To Two Decimal Places
     d['max'] = round(np.max(items), 2)
-    
+
     # Median calculation
     # Code Below Used To Calculate The Median Using np.median()
     # Rounded To Two Decimal Places
     d['median'] = round(np.median(items), 2)
-    
+
     # Minimum calculation
     # Code Below Used To Calculate The Min Value Using np.min()
     # Rounded To Two Decimal Places
     d['min'] = round(np.min(items), 2)
-    
+
     # First quantile
     # Code Below Used To Calculate The first Quantile Using np.quantile()
     # Rounded To Two Decimal Places
     d['q1'] = round(np.quantile(items, 0.25), 2)
-    
+
     # Third quantile
     # Code Below Used To Calculate The Third Quantile Using np.quantile()
     # Rounded To Two Decimal Places
@@ -103,9 +103,10 @@ def five_num_summary(items):
 
     return d
 
-### END FUNCTION
+# END FUNCTION
 
 # Function 3: Date Parser
+
 
 def date_parser(dates):
     """
@@ -118,40 +119,40 @@ def date_parser(dates):
     return [dt.split()[0] for dt
             in dates]
 
-### END FUNCTION
+# END FUNCTION
 
 # function 4: Municipality & Hashtag Detector
 
+
 def extract_municipality_hashtags(df):
-    
     '''
-    
+
     The Function Takes A Dataframe And Returns A modified Dataframe
-    
+
     Inputs:
     The Function Takes In A Pandas Dataframe, df
-    
+
     Returns:
     The Function Returns A Modified Dataframe
-    
+
     '''
-    
+
     # Import pandas
     import pandas as pd
-    
+
     # Import numpy
     import numpy as np
-    
+
     # Dictionary mapping official municipality twitter data
     mun_dict = {
-    '@CityofCTAlerts' : 'Cape Town',
-    '@CityPowerJhb' : 'Johannesburg',
-    '@eThekwiniM' : 'eThekwini' ,
-    '@EMMInfo' : 'Ekurhuleni',
-    '@centlecutility' : 'Mangaung',
-    '@NMBmunicipality' : 'Nelson Mandela Bay',
-    '@CityTshwane' : 'Tshwane'}
-    
+        '@CityofCTAlerts': 'Cape Town',
+        '@CityPowerJhb': 'Johannesburg',
+        '@eThekwiniM': 'eThekwini',
+        '@EMMInfo': 'Ekurhuleni',
+        '@centlecutility': 'Mangaung',
+        '@NMBmunicipality': 'Nelson Mandela Bay',
+        '@CityTshwane': 'Tshwane'}
+
     # Funtion to define tags in a line of data
     def tag(line):
         linelist = line.split()
@@ -160,22 +161,22 @@ def extract_municipality_hashtags(df):
                 return mun_dict[word]
         else:
             return np.nan
-        
-    # Funtion to define hashtags in line of data    
+
+    # Funtion to define hashtags in line of data
     def hashtag(line):
         # Initialize a empty list
         list_of_hashtags = []
-        
+
         # Code Below Split The Element Within the A List
         linelist = line.split()
-        
+
         # Code Below Loop Through A list
         for word in linelist:
             # Code Below Determine If A Element In A List Is Equal To "#" Character
             if word[0] == '#':
                 # Code Below Adds Argument As A Single Element To The End Of A List
                 list_of_hashtags.append(word.lower())
-        
+
         # Code Below Determine If The Lenght Of A List Is Equal to Zero
         if len(list_of_hashtags) == 0:
             # Code Below Return Missing Numerical Data
@@ -183,18 +184,19 @@ def extract_municipality_hashtags(df):
         else:
             # Code Below Return A List
             return list_of_hashtags
-        
+
     # Code Below Creates A Dataframe
     df['municipality'] = df['Tweets'].apply(tag)
-    
+
     # Code Below Creates A Dataframe
     df['hashtags'] = df['Tweets'].apply(hashtag)
-    
+
     return df
 
-### END FUNCTION
+# END FUNCTION
 
 # Function 5: Number of Tweets per Day
+
 
 def number_of_tweets_per_day(df):
     """
@@ -210,43 +212,41 @@ def number_of_tweets_per_day(df):
     # group by the date
     return df.groupby('Date').count()
 
-### END FUNCTION
+# END FUNCTION
 
 # Function 6: Word Splitter
 
 
-### START FUNCTION
+# START FUNCTION
 def word_splitter(df):
-    
     '''
-    
-    This function splits the sentences in a dataframe's column into a list of the separate words. 
-    The created lists are placed in a column named 'Split Tweets' in the original dataframe. 
+
+    This function splits the sentences in a dataframe's column into a list of the separate words.
+    The created lists are placed in a column named 'Split Tweets' in the original dataframe.
     This is also known as tokenization.
 
     Key function deliverables are:
 
     It takes a pandas dataframe as an input.
     The dataframe should contain a column, named 'Tweets'.
-    The function splits the sentences in the 'Tweets' into a list of seperate words, and places the 
+    The function splits the sentences in the 'Tweets' into a list of seperate words, and places the
     result into a new column named 'Split Tweets'. The resulting words must all be lowercase!
     It modifies the input dataframe directly.
-    
+
     Return:
     it returns the modified dataframe.
     '''
-    
+
     # Creates a column, 'Split Tweets', using the .apply method of a pandas dataframe.
-    # Applies the lambda function to the 'Tweets' column of the dataframe 
+    # Applies the lambda function to the 'Tweets' column of the dataframe
     # which takes the input, x, as each tweet within that column,
     # then returns lower cases of each word in a tweet, with the use of split() method.
-    
-    
+
     df['Split Tweets'] = df['Tweets'].apply(lambda x: [i.lower() for i in x.split()])
-    
+
     return df
 
-### END FUNCTION
+# END FUNCTION
 
 
 # Function 7: Stop Words
@@ -321,4 +321,4 @@ def stop_words_remover(df):
     # returns the modified dataframe
     return df
 
-### END FUNCTION
+# END FUNCTION
