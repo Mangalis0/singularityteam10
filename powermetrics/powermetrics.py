@@ -2,7 +2,9 @@
 
 ### START FUNCTION
 def dictionary_of_metrics(items):
-    """"
+   
+    """
+    
     This function calculates the mean, median,
     variance, standard deviation, minimum and maximum of list, items, which
     contains only numerical entries.
@@ -11,9 +13,6 @@ def dictionary_of_metrics(items):
     'max' , corresponding to the mean, median, standard deviation, variance,
     minimum and maximum of the input list, respectively rounded to 2 decimal
     places.
-
-
-
     """
 
     # Import numpy as np to use within this function
@@ -69,7 +68,6 @@ def five_num_summary(items):
 
     Returns:
     The Function Return A Dictionary With Keys 'max', 'median', 'min', 'q1', 'q3'
-
     '''
 
     # Initialize a empty dictionary
@@ -136,6 +134,43 @@ def number_of_tweets_per_day(df):
     return df.groupby('Date').count()
 
 ### END FUNCTION
+
+# Function 6: Word Splitter
+
+
+### START FUNCTION
+def word_splitter(df):
+    
+    '''
+    
+    This function splits the sentences in a dataframe's column into a list of the separate words. 
+    The created lists are placed in a column named 'Split Tweets' in the original dataframe. 
+    This is also known as tokenization.
+
+    Key function deliverables are:
+
+    It takes a pandas dataframe as an input.
+    The dataframe should contain a column, named 'Tweets'.
+    The function splits the sentences in the 'Tweets' into a list of seperate words, and places the 
+    result into a new column named 'Split Tweets'. The resulting words must all be lowercase!
+    It modifies the input dataframe directly.
+    
+    Return:
+    it returns the modified dataframe.
+    '''
+    
+    # Creates a column, 'Split Tweets', using the .apply method of a pandas dataframe.
+    # Applies the lambda function to the 'Tweets' column of the dataframe 
+    # which takes the input, x, as each tweet within that column,
+    # then returns lower cases of each word in a tweet, with the use of split() method.
+    
+    
+    df['Split Tweets'] = df['Tweets'].apply(lambda x: [i.lower() for i in x.split()])
+    
+    return df
+
+### END FUNCTION
+
 
 # Function 7: Stop Words
 
