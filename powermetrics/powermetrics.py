@@ -1,3 +1,58 @@
+# FUNCTION 1
+
+### START FUNCTION
+def dictionary_of_metrics(items):
+    """"
+    This function calculates the mean, median,
+    variance, standard deviation, minimum and maximum of list, items, which
+    contains only numerical entries.
+
+    It return a dict with keys 'mean' , 'median' , 'std' , 'var' , 'min' , and
+    'max' , corresponding to the mean, median, standard deviation, variance,
+    minimum and maximum of the input list, respectively rounded to 2 decimal
+    places.
+
+
+
+    """
+
+    # Import numpy as np to use within this function
+    import numpy as np
+
+
+    'Initialize dict'
+    d = {}
+
+    # Add 'mean' key to the dict with the value of the mean calculate by using
+    # np.mean rounded to 2 decimal places
+    d['mean'] = round(np.mean(items), 2)
+
+    # Add 'median' key to the dict with the value of the median calculate by
+    # using np.median rounded to 2 decimal places
+    d['median'] = round(np.median(items), 2)
+
+    # Add 'var' key to the dict with the value of the varience calculate by
+    # using np.var rounded to 2 decimal places
+    d['var'] = round(np.var(items, ddof=1), 2)
+
+    # Add 'std' key to the dict with the value of the standard deviation
+    # calculate by using np.std to 2 decimal places
+    d['std'] = round(np.std(items, ddof=1), 2)
+
+    # Add 'min' key to the dict with the value of the minimum calculate by
+    # using np.min to 2 decimal places
+    d['min'] = round(np.min(items), 2)
+
+    # Add 'max' key to the dict with the value of the maximum calculate by
+    # using np.max to 2 decimal places
+    d['max'] = round(np.max(items), 2)
+
+    # returns dictionary, d
+    return d
+
+### END FUNCTION
+
+
 # Function 3: Date Parser
 
 def date_parser(dates):
@@ -29,15 +84,18 @@ def stop_words_remover(df):
     Inputs:
 
     It takes a pandas dataframe, df, as input.
-    Tokenizes the tweet by breaking the words(strings seperated by ' ') into string items of a list.
+    Tokenizes the tweet by breaking the words(strings seperated by ' ') into
+    string items of a list.
 
     It removes all stop words in the tokenised list.
-    The stopwords are defined in the stop_words_dict variable defined within function.
-    The resulting tokenised list is then placed in a column named "Without Stop Words" 
-    created within the DataFrame.
+    The stopwords are defined in the stop_words_dict variable defined within
+    function.
+    The resulting tokenised list is then placed in a column named
+    "Without Stop Words" created within the DataFrame.
 
     Returns:
-    The function returns the modified dataframe, df, which includes the column, "Without Stop Words".
+    The function returns the modified dataframe, df, which includes the column,
+    "Without Stop Words".
     '''
 
     stop_words_dict = {
@@ -74,8 +132,9 @@ def stop_words_remover(df):
         ]
     }
 
-    # Creates a column, "Without Stop Words", using the .apply method of a pandas dataframe.
-    # Applies the lambda function to the 'Tweets' column of the dataframe 
+    # Creates a column, "Without Stop Words", using the .apply method of a
+    # pandas dataframe.
+    # Applies the lambda function to the 'Tweets' column of the dataframe
     # which takes the input, x, as each tweet within that column,
     # then returns lower cases of each string in tweet as a list item,
     # provided that string is not in dict
