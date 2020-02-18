@@ -3,7 +3,6 @@ from powermetrics import powermetrics as pwm
 
 # Import pandas and numpy
 import pandas as pd
-import numpy as np
 
 # END OF MODULE IMPORT
 
@@ -73,8 +72,7 @@ stop_words_dict = {'stopwords': ['where', 'done', 'if', 'before', 'll', 'very', 
 
 # Test Function 1: dictionary_of_metrics
 def test_dictionary_of_metrics():
-
-    """"
+    """
     Make sure dictionary_of_metrics works correctly
     """
 
@@ -91,8 +89,7 @@ def test_dictionary_of_metrics():
 
 # Test Function 2: five_num_summary
 def test_five_num_summary():
-
-    """"
+    """
     Make sure five_num_summary works correctly
     """
 
@@ -108,8 +105,7 @@ def test_five_num_summary():
 
 # Test function 3: date_parser
 def test_date_parser():
-
-    """"
+    """
     Make sure date_parser works correctly
     """
     assert pwm.date_parser(dates[:3]) == ['2019-11-29', '2019-11-29', '2019-11-29'], 'Incorrect'
@@ -120,12 +116,12 @@ def test_date_parser():
 
 # Test function 4: extract_municipality_hashtags
 def test_extract_municipality_hashtags():
-
-    """"
+    """
     Make sure extract_municipality_hashtags works correctly
     """
 
-    assert pwm.extract_municipality_hashtags(twitter_df.copy()).shape == (200, 4), 'Incorrect'  # test size of dataframe
+    assert pwm.extract_municipality_hashtags(twitter_df.copy()).shape == (
+        200, 4), 'Incorrect'  # test size of dataframe
     assert 'Tweets' in pwm.extract_municipality_hashtags(twitter_df.copy())\
            and 'Date' in pwm.extract_municipality_hashtags(twitter_df.copy())\
            and 'municipality' in pwm.extract_municipality_hashtags(twitter_df.copy())\
@@ -136,8 +132,7 @@ def test_extract_municipality_hashtags():
 
 # Test function 5: number_of_tweets_per_day
 def test_number_of_tweets_per_day():
-
-    """"
+    """
     Make sure number_of_tweets_per_day works correctly
     """
 
@@ -149,8 +144,7 @@ def test_number_of_tweets_per_day():
 
 # Test function 6: word_splitter
 def test_word_splitter():
-
-    """"
+    """
     Make sure word_splitter works correctly
     """
 
@@ -164,8 +158,7 @@ def test_word_splitter():
 
 # Test function 7: stop_words_remover
 def test_stop_words_remover():
-
-    """"
+    """
     Make sure stop_words_remover works correctly
     """
     assert pwm.stop_words_remover(twitter_df.copy()).shape == (200, 3), 'Incorrect'

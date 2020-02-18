@@ -3,12 +3,9 @@ import pandas as pd
 
 # FUNCTION 1
 
-# START FUNCTION
-
 
 def dictionary_of_metrics(items):
     """
-
     This function calculates the mean, median,
     variance, standard deviation, minimum and maximum of list, items, which
     contains only numerical entries.
@@ -18,9 +15,6 @@ def dictionary_of_metrics(items):
     minimum and maximum of the input list, respectively rounded to 2 decimal
     places.
     """
-
-    # Import numpy as np to use within this function
-    import numpy as np
 
     'Initialize dict'
     d = {}
@@ -52,14 +46,12 @@ def dictionary_of_metrics(items):
     # returns dictionary, d
     return d
 
-# END FUNCTION
 
 # Function 2: Five Number Summary
 
 
 def five_num_summary(items):
-    '''
-
+    """
     The Function Takes In A List As Integers And Returns A Dictionary Of
     A Five Number Summary.(maximum, median, minimum, first quantile, third quantile).
 
@@ -71,7 +63,7 @@ def five_num_summary(items):
 
     Returns:
     The Function Return A Dictionary With Keys 'max', 'median', 'min', 'q1', 'q3'
-    '''
+    """
 
     # Initialize a empty dictionary
     d = {}
@@ -103,7 +95,6 @@ def five_num_summary(items):
 
     return d
 
-# END FUNCTION
 
 # Function 3: Date Parser
 
@@ -119,14 +110,12 @@ def date_parser(dates):
     return [dt.split()[0] for dt
             in dates]
 
-# END FUNCTION
 
 # function 4: Municipality & Hashtag Detector
 
 
 def extract_municipality_hashtags(df):
     '''
-
     The Function Takes A Dataframe And Returns A modified Dataframe
 
     Inputs:
@@ -134,14 +123,7 @@ def extract_municipality_hashtags(df):
 
     Returns:
     The Function Returns A Modified Dataframe
-
     '''
-
-    # Import pandas
-    import pandas as pd
-
-    # Import numpy
-    import numpy as np
 
     # Dictionary mapping official municipality twitter data
     mun_dict = {
@@ -193,7 +175,6 @@ def extract_municipality_hashtags(df):
 
     return df
 
-# END FUNCTION
 
 # Function 5: Number of Tweets per Day
 
@@ -212,12 +193,10 @@ def number_of_tweets_per_day(df):
     # group by the date
     return df.groupby('Date').count()
 
-# END FUNCTION
 
 # Function 6: Word Splitter
 
 
-# START FUNCTION
 def word_splitter(df):
     '''
 
@@ -245,8 +224,6 @@ def word_splitter(df):
     df['Split Tweets'] = df['Tweets'].apply(lambda x: [i.lower() for i in x.split()])
 
     return df
-
-# END FUNCTION
 
 
 # Function 7: Stop Words
@@ -320,5 +297,3 @@ def stop_words_remover(df):
 
     # returns the modified dataframe
     return df
-
-# END FUNCTION
