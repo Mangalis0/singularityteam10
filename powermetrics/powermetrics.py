@@ -117,6 +117,80 @@ def date_parser(dates):
 
 ### END FUNCTION
 
+# function 4: Municipality & Hashtag Detector
+
+def extract_municipality_hashtags(df):
+    
+    '''
+    
+    The Function Takes A Dataframe And Returns A modified Dataframe
+    
+    Inputs:
+    The Function Takes In A Pandas Dataframe, df
+    
+    Returns:
+    The Function Returns A Modified Dataframe
+    
+    '''
+    
+    # Import pandas
+    import pandas as pd
+    
+    # Import numpy
+    import numpy as np
+    
+    # Dictionary mapping official municipality twitter data
+    mun_dict = {
+    '@CityofCTAlerts' : 'Cape Town',
+    '@CityPowerJhb' : 'Johannesburg',
+    '@eThekwiniM' : 'eThekwini' ,
+    '@EMMInfo' : 'Ekurhuleni',
+    '@centlecutility' : 'Mangaung',
+    '@NMBmunicipality' : 'Nelson Mandela Bay',
+    '@CityTshwane' : 'Tshwane'}
+    
+    # Funtion to define tags in a line of data
+    def tag(line):
+        linelist = line.split()
+        for word in linelist:
+            if word in mun_dict.keys():
+                return mun_dict[word]
+        else:
+            return np.nan
+        
+    # Funtion to define hashtags in line of data    
+    def hashtag(line):
+        # Initialize a empty list
+        list_of_hashtags = []
+        
+        # Code Below Split The Element Within the A List
+        linelist = line.split()
+        
+        # Code Below Loop Through A list
+        for word in linelist:
+            # Code Below Determine If A Element In A List Is Equal To "#" Character
+            if word[0] == '#':
+                # Code Below Adds Argument As A Single Element To The End Of A List
+                list_of_hashtags.append(word.lower())
+        
+        # Code Below Determine If The Lenght Of A List Is Equal to Zero
+        if len(list_of_hashtags) == 0:
+            # Code Below Return Missing Numerical Data
+            return np.nan
+        else:
+            # Code Below Return A List
+            return list_of_hashtags
+        
+    # Code Below Creates A Dataframe
+    df['municipality'] = df['Tweets'].apply(tag)
+    
+    # Code Below Creates A Dataframe
+    df['hashtags'] = df['Tweets'].apply(hashtag)
+    
+    return df
+
+### END FUNCTION
+
 # Function 5: Number of Tweets per Day
 
 def number_of_tweets_per_day(df):
