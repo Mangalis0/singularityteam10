@@ -102,6 +102,8 @@ def five_num_summary(items):
 
     return d
 
+### END FUNCTION
+
 # Function 3: Date Parser
 
 def date_parser(dates):
@@ -110,8 +112,12 @@ def date_parser(dates):
     this function takes a list of dated timestamps (strings) 'yyyy-mm-dd hh:mm:ss' as input parameter: dates
     and returns  a list of dates (strings)
     """
+    # for each element in dates, extract the first word.
 
-    return
+    return [dt.split()[0] for dt
+            in dates]
+
+### END FUNCTION
 
 # Function 5: Number of Tweets per Day
 
@@ -122,6 +128,14 @@ def number_of_tweets_per_day(df):
     NB input requirement: the dataframe needs to have columns for "Dates" and "Tweets" respectively
     It then returns a dataframe of the number of tweets grouped per day
     """
+    # split the dated timestamp and convert the first part to a date object create a new column with the date
+    # using apply method with a lambda function
+    df['Date'] = df['Date'].apply(lambda dt: pd.to_datetime(dt.split()[0]))
+
+    # group by the date
+    return df.groupby('Date').count()
+
+### END FUNCTION
 
 # Function 7: Stop Words
 
@@ -194,3 +208,5 @@ def stop_words_remover(df):
 
     # returns the modified dataframe
     return df
+
+### END FUNCTION
