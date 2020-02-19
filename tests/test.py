@@ -1,5 +1,5 @@
-# import the powermetrics module created with the alias pwm
-from powermetrics import powermetrics as pwm
+# import the powermetrics module created with the alias pm
+from powermetrics import powermetrics as pm
 
 # Import pandas and numpy
 import pandas as pd
@@ -76,7 +76,7 @@ def test_dictionary_of_metrics():
     Make sure dictionary_of_metrics works correctly
     """
 
-    assert pwm.dictionary_of_metrics(gauteng) == {'mean': 26244.42,
+    assert pm.dictionary_of_metrics(gauteng) == {'mean': 26244.42,
                                                   'median': 24403.5,
                                                   'var': 108160153.17,
                                                   'std': 10400.01,
@@ -93,7 +93,7 @@ def test_five_num_summary():
     Make sure five_num_summary works correctly
     """
 
-    assert pwm.five_num_summary(gauteng) == {'max': 39660.0,
+    assert pm.five_num_summary(gauteng) == {'max': 39660.0,
                                              'median': 24403.5,
                                              'min': 8842.0,
                                              'q1': 18653.0,
@@ -108,8 +108,8 @@ def test_date_parser():
     """
     Make sure date_parser works correctly
     """
-    assert pwm.date_parser(dates[:3]) == ['2019-11-29', '2019-11-29', '2019-11-29'], 'Incorrect'
-    assert pwm.date_parser(dates[-3:]) == ['2019-11-20', '2019-11-20', '2019-11-20'], 'Incorrect'
+    assert pm.date_parser(dates[:3]) == ['2019-11-29', '2019-11-29', '2019-11-29'], 'Incorrect'
+    assert pm.date_parser(dates[-3:]) == ['2019-11-20', '2019-11-20', '2019-11-20'], 'Incorrect'
 
 # END OF Test Function 3
 
@@ -120,12 +120,12 @@ def test_extract_municipality_hashtags():
     Make sure extract_municipality_hashtags works correctly
     """
 
-    assert pwm.extract_municipality_hashtags(twitter_df.copy()).shape == (
+    assert pm.extract_municipality_hashtags(twitter_df.copy()).shape == (
         200, 4), 'Incorrect'  # test size of dataframe
-    assert 'Tweets' in pwm.extract_municipality_hashtags(twitter_df.copy())\
-           and 'Date' in pwm.extract_municipality_hashtags(twitter_df.copy())\
-           and 'municipality' in pwm.extract_municipality_hashtags(twitter_df.copy())\
-           and 'hashtags' in pwm.extract_municipality_hashtags(twitter_df.copy()), 'Incorrect'
+    assert 'Tweets' in wm.extract_municipality_hashtags(twitter_df.copy())\
+           and 'Date' in pm.extract_municipality_hashtags(twitter_df.copy())\
+           and 'municipality' in pm.extract_municipality_hashtags(twitter_df.copy())\
+           and 'hashtags' in pm.extract_municipality_hashtags(twitter_df.copy()), 'Incorrect'
 
 # END OF Test Function 4
 
@@ -136,8 +136,8 @@ def test_number_of_tweets_per_day():
     Make sure number_of_tweets_per_day works correctly
     """
 
-    assert pwm.number_of_tweets_per_day(twitter_df.copy()).shape == (10, 1), 'Incorrect'
-    assert 'Tweets' in pwm.number_of_tweets_per_day(twitter_df.copy()), 'Incorrect'
+    assert pm.number_of_tweets_per_day(twitter_df.copy()).shape == (10, 1), 'Incorrect'
+    assert 'Tweets' in pm.number_of_tweets_per_day(twitter_df.copy()), 'Incorrect'
 
 # END OF Test Function 5
 
@@ -148,10 +148,10 @@ def test_word_splitter():
     Make sure word_splitter works correctly
     """
 
-    assert pwm.word_splitter(twitter_df.copy()).shape == (200, 3), 'Incorrect'
-    assert 'Tweets' in pwm.word_splitter(twitter_df.copy())\
-           and 'Date' in pwm.word_splitter(twitter_df.copy())\
-           and 'Split Tweets' in pwm.word_splitter(twitter_df.copy()), 'Incorrect'
+    assert pm.word_splitter(twitter_df.copy()).shape == (200, 3), 'Incorrect'
+    assert 'Tweets' in pm.word_splitter(twitter_df.copy())\
+           and 'Date' in pm.word_splitter(twitter_df.copy())\
+           and 'Split Tweets' in pm.word_splitter(twitter_df.copy()), 'Incorrect'
 
 # END OF Test Function 6
 
@@ -161,7 +161,7 @@ def test_stop_words_remover():
     """
     Make sure stop_words_remover works correctly
     """
-    assert pwm.stop_words_remover(twitter_df.copy()).shape == (200, 3), 'Incorrect'
-    assert 'Tweets' in pwm.stop_words_remover(twitter_df.copy())\
-           and 'Date' in pwm.stop_words_remover(twitter_df.copy())\
-           and 'Without Stop Words' in pwm.stop_words_remover(twitter_df.copy()), 'Incorrect'
+    assert pm.stop_words_remover(twitter_df.copy()).shape == (200, 3), 'Incorrect'
+    assert 'Tweets' in pm.stop_words_remover(twitter_df.copy())\
+           and 'Date' in pm.stop_words_remover(twitter_df.copy())\
+           and 'Without Stop Words' in pm.stop_words_remover(twitter_df.copy()), 'Incorrect'
