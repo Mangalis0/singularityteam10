@@ -21,7 +21,7 @@
 
 
 
-## Installation
+## Installation and Usage
 
 Ensure that the following packages have been installed and imported.
 
@@ -41,6 +41,13 @@ pip install git+https://github.com/Mangalis0/singularityteam10.git
 ```bash
 pip install --upgrade git+https://github.com/Mangalis0/singularityteam10.git
 ```
+
+#To access/use the functions
+```python
+from powermetrics import powermetrics as pm
+
+```
+
 
 # Function 1: Dictionary of Metrics
 
