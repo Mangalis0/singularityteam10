@@ -10,6 +10,10 @@ def dictionary_of_metrics(items):
     variance, standard deviation, minimum and maximum of list, items, which
     contains only numerical entries.
 
+    Inputs:
+    The funtion takes in a list of integers of floats.
+    
+    Returns:
     It return a dict with keys 'mean' , 'median' , 'std' , 'var' , 'min' , and
     'max' , corresponding to the mean, median, standard deviation, variance,
     minimum and maximum of the input list, respectively rounded to 2 decimal
@@ -101,10 +105,15 @@ def five_num_summary(items):
 
 def date_parser(dates):
     """
-
-    this function takes a list of dated timestamps (strings) 'yyyy-mm-dd hh:mm:ss' as input parameter: dates
-    and returns  a list of dates (strings)
+    This funtion converts timestamps of strings of format 'yyyy-mm-dd hh:mm:ss' to strings of format 'yyyy-mm-dd hh:mm:ss'.
+    
+    Inputs:
+    This function takes a list of dated timestamps as strings of format 'yyyy-mm-dd hh:mm:ss' as input parameter: dates
+    
+    returns:
+    A list of dates as strings of format 'yyyy-mm-dd'
     """
+    
     # for each element in dates, extract the first word.
 
     return [dt.split()[0] for dt
@@ -119,10 +128,10 @@ def extract_municipality_hashtags(df):
     The Function Takes A Dataframe And Returns A modified Dataframe
 
     Inputs:
-    The Function Takes In A Pandas Dataframe, df
+    The Function Takes In A Pandas Dataframe, df, which has 'Tweets' column.
 
     Returns:
-    The Function Returns A Modified Dataframe
+    The Function Returns A Modified Dataframe which includes 'municipality' and 'hashtags' columns.
     '''
 
     # Dictionary mapping official municipality twitter data
@@ -181,10 +190,15 @@ def extract_municipality_hashtags(df):
 
 def number_of_tweets_per_day(df):
     """
+    This function counts the number of tweets per day.
 
+    Inputs:
     This function takes a dataframe of twitter data as input parameter: df
-    NB input requirement: the dataframe needs to have columns for "Dates" and "Tweets" respectively
-    It then returns a dataframe of the number of tweets grouped per day
+    
+    NB input requirement: the dataframe needs to have columns for "Dates" and "Tweets" respectively.
+    
+    Returns:
+    It then returns a dataframe of the number of tweets grouped per day.
     """
     # split the dated timestamp and convert the first part to a date object create a new column with the date
     # using apply method with a lambda function
@@ -199,20 +213,19 @@ def number_of_tweets_per_day(df):
 
 def word_splitter(df):
     '''
-
     This function splits the sentences in a dataframe's column into a list of the separate words.
+    
     The created lists are placed in a column named 'Split Tweets' in the original dataframe.
     This is also known as tokenization.
 
-    Key function deliverables are:
-
+    Inputs:
     It takes a pandas dataframe as an input.
     The dataframe should contain a column, named 'Tweets'.
     The function splits the sentences in the 'Tweets' into a list of seperate words, and places the
     result into a new column named 'Split Tweets'. The resulting words must all be lowercase!
     It modifies the input dataframe directly.
 
-    Return:
+    Returns:
     it returns the modified dataframe.
     '''
 
@@ -230,7 +243,6 @@ def word_splitter(df):
 
 def stop_words_remover(df):
     '''
-
     This function removes English stop words from a tweet in a Pandas Dataframe.
 
     Inputs:
