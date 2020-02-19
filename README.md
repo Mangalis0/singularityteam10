@@ -21,17 +21,26 @@
 
 
 
-## The 7 functions
+## Installation
 
-Ensure that the following packages have been imported.
+Ensure that the following packages have been installed and imported.
 
-```python
-import numpy as np
-import pandas as pd
-
+```bash
+pip install numpy
+pip install pandas
 ```
 
+#To Install Power Metrics(The 7 Functions)
 
+```bash
+pip install git+https://github.com/Mangalis0/singularityteam10.git
+```
+
+#To Upgrade Power Metrics(The 7 Functions)
+
+```bash
+pip install --upgrade git+https://github.com/Mangalis0/singularityteam10.git
+```
 
 # Function 1: Dictionary of Metrics
 
@@ -49,7 +58,19 @@ def dictionary_of_metrics(items):
     minimum and maximum of the input list, respectively rounded to 2 decimal
     places.
     """
+
+#Expample Output
+dictionary_of_metrics(gauteng) == {'mean': 26244.42,
+                                   'median': 24403.5,
+                                   'var': 108160153.17,
+                                   'std': 10400.01,
+                                   'min': 8842.0,
+                                   'max': 39660.0}
+
 ```
+
+
+
 # Function 2: Five Number Summary
 
 ```python
@@ -69,7 +90,19 @@ def five_num_summary(items):
     Returns:
     The Function Return A Dictionary With Keys 'max', 'median', 'min', 'q1', 'q3'
     '''
+
+#Expample Output
+five_num_summary(gauteng) == {
+    'max': 39660.0,
+    'median': 24403.5,
+    'min': 8842.0,
+    'q1': 18653.0,
+    'q3': 36372.0
+}
+
 ```
+
+
 
 # Function 3: Date Parser
 
@@ -80,6 +113,10 @@ def date_parser(dates):
     this function takes a list of dated timestamps (strings) 'yyyy-mm-dd hh:mm:ss' as input parameter: dates
     and returns  a list of dates (strings)
     """
+#Expample Output
+date_parser(dates[:3]) == ['2019-11-29', '2019-11-29', '2019-11-29']
+date_parser(dates[-3:]) == ['2019-11-20', '2019-11-20', '2019-11-20']
+
 ```
 
 # Function 4: Municipality & Hashtag Detector
@@ -98,6 +135,12 @@ def extract_municipality_hashtags(df):
     The Function Returns A Modified Dataframe
     '''
 ```
+#Example Output
+| Tweets | Date | Municiplity | Hashtags |
+| ------------- |:-------------:| -----:| -----: |
+| 0	@BongaDlulane Please send an email to mediades | 2019-11-29 12:50:54 | Nan | Nan |
+| 1	@saucy_mamiie Pls log a call on 0860037566 | 2019-11-29 12:46:53 | Nan | Nan |
+| 2	@BongaDlulane Query escalated to media desk. | 2019-11-29 12:46:10 | Nan | Nan |
 
 
 # Function 5: Number of Tweets per Day
@@ -111,6 +154,14 @@ def number_of_tweets_per_day(df):
     It then returns a dataframe of the number of tweets grouped per day
     """
 ```
+
+#Example Output
+| Date | Tweets | 
+| ------------- |:-------------:| 
+| 2019-11-20 | 18 | 
+| 2019-11-21 | 11 | 
+| 2019-11-22 | 25 |
+
 
 # Function 6: Word Splitter
 
@@ -135,6 +186,14 @@ def word_splitter(df):
     it returns the modified dataframe.
     '''
 ```
+#Example Output
+| Tweets | Date | Split Tweets | 
+| ------------- |:-------------:| -----:|
+| 0	@BongaDlulane Please send an email to mediades | 2019-11-29 12:50:54 | [@bongadlulane, please, send, an, email, to, m... |
+| 1	@saucy_mamiie Pls log a call on 0860037566 | 2019-11-29 12:46:53 | [@saucy_mamiie, pls, log, a, call, on, 0860037.. | 
+| 2	@BongaDlulane Query escalated to media desk. | 2019-11-29 12:46:10 | [@bongadlulane, query, escalated, to, media, d. |
+
+
 # Function 7: Stop Words
 
 ```python
@@ -160,9 +219,20 @@ def stop_words_remover(df):
     "Without Stop Words".
     '''
 ```
+| Tweets | Date | Without Stop Words | 
+| ------------- |:-------------:| -----:|
+| 0	@BongaDlulane Please send an email to mediades | 2019-11-29 12:50:54 | [@bongadlulane, send, email, mediadesk@eskom.c.. |
+| 1	@saucy_mamiie Pls log a call on 0860037566 | 2019-11-29 12:46:53 | [@saucy_mamiie, pls, log, 0860037566] | 
+| 2	@BongaDlulane Query escalated to media desk. | 2019-11-29 12:46:10 | [@bongadlulane, query, escalated, media, desk.]|
+
+
+## Singularity Group 10 Members - Contributing Authors
+Author='Mangaliso Makhoba, Zanele Gwamanda, Nkululeko Mthembu, Letlhogile Mothoagae, Bryan Green',
+Author_email='makhoba808@gmail.com, zanelegwamanda99@gmail.com, nsm.branding@gmail.com, lot.mothoagae@gmail.com, bryangreen290@gmail.com'
 
 ## Project Continuity
 This is an ongoing, live project and data may be updated from time to time.
+
 
 
 ## Contributing
