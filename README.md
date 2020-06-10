@@ -17,7 +17,7 @@
 3. Basic Statistics and Aggregations
 4. Function Definitions
 5. PEP8 coding style
-6. Git & Github
+6. Git & Github    
 
 
 
